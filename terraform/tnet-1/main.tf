@@ -83,7 +83,7 @@ variable "base_cidr_block" {
 
 locals {
   vm_groups = [
-    var.mev_relay,
+    # var.mev_relay,
     var.bootnode,
     var.lighthouse_geth,
     # var.lighthouse_nethermind,
