@@ -5,7 +5,7 @@ variable "mev_relay" {
     count           = 1
     validator_start = 0
     validator_end   = 0
-    size            = "s-4vcpu-16gb-320gb-intel"
+    size            = "n2-standard-4"
   }
 }
 
@@ -16,8 +16,8 @@ variable "bootnode" {
     count           = 1
     validator_start = 0
     validator_end   = 0
-    location        = "fra1"
-    size            = "s-4vcpu-16gb-320gb-intel"
+    location        = "asia-southeast1-a"
+    size            = "n2-standard-4"
   }
 }
 
@@ -28,7 +28,7 @@ variable "lighthouse_geth" {
     count           = 1
     validator_start = 0
     validator_end   = 100
-    location        = "fra1"
+    location        = "asia-southeast1-a"
     ipv6            = true
   }
 }
@@ -39,7 +39,7 @@ variable "lighthouse_nethermind" {
     count           = 1
     validator_start = 100
     validator_end   = 200
-    location        = "nyc1"
+    location        = "asia-southeast1-b"
   }
 }
 
@@ -49,7 +49,7 @@ variable "lighthouse_besu" {
     count           = 1
     validator_start = 200
     validator_end   = 225
-    location        = "blr1"
+    location        = "asia-southeast1-c"
   }
 }
 
@@ -59,7 +59,7 @@ variable "lighthouse_erigon" {
     count           = 1
     validator_start = 225
     validator_end   = 250
-    location        = "sfo3"
+    location        = "asia-southeast1-a"
   }
 }
 
@@ -79,7 +79,7 @@ variable "prysm_geth" {
     count           = 1
     validator_start = 2855
     validator_end   = 2950
-    location        = "syd1"
+    location        = "asia-southeast1-b"
   }
 }
 
@@ -89,7 +89,7 @@ variable "prysm_nethermind" {
     count           = 1
     validator_start = 2950
     validator_end   = 3050
-    location        = "nyc1"
+    location        = "asia-southeast1-b"
   }
 }
 
@@ -99,7 +99,7 @@ variable "prysm_besu" {
     count           = 1
     validator_start = 3050
     validator_end   = 3150
-    location        = "fra1"
+    location        = "asia-southeast1-a"
   }
 }
 
@@ -109,7 +109,7 @@ variable "prysm_erigon" {
     count           = 1
     validator_start = 3150
     validator_end   = 3250
-    location        = "blr1"
+    location        = "asia-southeast1-c"
   }
 }
 
@@ -129,7 +129,7 @@ variable "lodestar_geth" {
     count           = 1
     validator_start = 510
     validator_end   = 620
-    location        = "fra1"
+    location        = "asia-southeast1-a"
     ipv6            = true
   }
 }
@@ -140,7 +140,7 @@ variable "lodestar_nethermind" {
     count           = 1
     validator_start = 620
     validator_end   = 720
-    location        = "blr1"
+    location        = "asia-southeast1-c"
   }
 }
 
@@ -150,7 +150,7 @@ variable "lodestar_besu" {
     count           = 1
     validator_start = 720
     validator_end   = 745
-    location        = "sfo3"
+    location        = "asia-southeast1-a"
   }
 }
 
@@ -160,7 +160,7 @@ variable "lodestar_erigon" {
     count           = 1
     validator_start = 745
     validator_end   = 770
-    location        = "syd1"
+    location        = "asia-southeast1-b"
   }
 }
 
@@ -170,7 +170,7 @@ variable "lodestar_ethereumjs" {
     count           = 1
     validator_start = 770
     validator_end   = 780
-    location        = "nyc1"
+    location        = "asia-southeast1-b"
   }
 }
 
@@ -181,7 +181,7 @@ variable "teku_geth" {
     count           = 1
     validator_start = 780
     validator_end   = 880
-    location        = "fra1"
+    location        = "asia-southeast1-a"
   }
 }
 
@@ -191,7 +191,7 @@ variable "teku_nethermind" {
     count           = 1
     validator_start = 880
     validator_end   = 980
-    location        = "blr1"
+    location        = "asia-southeast1-c"
   }
 }
 
@@ -201,7 +201,7 @@ variable "teku_besu" {
     count           = 1
     validator_start = 980
     validator_end   = 1005
-    location        = "sfo3"
+    location        = "asia-southeast1-a"
   }
 }
 
@@ -211,7 +211,7 @@ variable "teku_erigon" {
     count           = 1
     validator_start = 1005
     validator_end   = 1030
-    location        = "syd1"
+    location        = "asia-southeast1-b"
   }
 }
 
@@ -231,7 +231,7 @@ variable "nimbus_geth" {
     count           = 1
     validator_start = 1030
     validator_end   = 1140
-    location        = "nyc1"
+    location        = "asia-southeast1-b"
   }
 }
 
@@ -241,7 +241,7 @@ variable "nimbus_nethermind" {
     count           = 1
     validator_start = 1140
     validator_end   = 1240
-    location        = "fra1"
+    location        = "asia-southeast1-a"
   }
 }
 
@@ -251,7 +251,7 @@ variable "nimbus_besu" {
     count           = 1
     validator_start = 1240
     validator_end   = 1265
-    location        = "blr1"
+    location        = "asia-southeast1-c"
   }
 }
 
@@ -261,7 +261,7 @@ variable "nimbus_erigon" {
     count           = 1
     validator_start = 1265
     validator_end   = 1290
-    location        = "sfo3"
+    location        = "asia-southeast1-a"
   }
 }
 
@@ -281,7 +281,7 @@ variable "lighthouse_reth" {
     count           = 1
     validator_start = 1290
     validator_end   = 1450
-    location        = "syd1"
+    location        = "asia-southeast1-b"
   }
 }
 
@@ -291,7 +291,7 @@ variable "prysm_reth" {
     count           = 1
     validator_start = 3250
     validator_end   = 3350
-    location        = "nyc1"
+    location        = "asia-southeast1-b"
   }
 }
 
@@ -301,7 +301,7 @@ variable "lodestar_reth" {
     count           = 1
     validator_start = 1450
     validator_end   = 1600
-    location        = "fra1"
+    location        = "asia-southeast1-a"
   }
 }
 
@@ -311,7 +311,7 @@ variable "teku_reth" {
     count           = 1
     validator_start = 1600
     validator_end   = 1700
-    location        = "blr1"
+    location        = "asia-southeast1-c"
   }
 }
 
@@ -321,6 +321,6 @@ variable "nimbus_reth" {
     count           = 1
     validator_start = 1700
     validator_end   = 1800
-    location        = "sfo3"
+    location        = "asia-southeast1-a"
   }
 }
