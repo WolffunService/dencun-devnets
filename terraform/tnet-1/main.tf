@@ -365,32 +365,33 @@ resource "cloudflare_record" "server_record_beacon" {
 //                          GENERATED FILES AND OUTPUTS
 ////////////////////////////////////////////////////////////////////////////////////////
 
-# resource "local_file" "ansible_inventory" {
-#   content = templatefile("ansible_inventory.tmpl",
-#     {
-#       ethereum_network_name = "${var.ethereum_network}"
-#       groups = merge(
-#         { for group in local.digitalocean_vm_groups : "${group.group_name}" => true... },
-#       )
-#       hosts = merge(
-#         {
-#           for key, server in digitalocean_droplet.main : "do.${key}" => {
-#             ip              = "${server.ipv4_address}"
-#             ipv6            = try(server.ipv6_address, "none")
-#             group           = try(split(":", tolist(server.tags)[2])[1], "unknown")
-#             validator_start = try(split(":", tolist(server.tags)[4])[1], 0)
-#             validator_end   = try(split(":", tolist(server.tags)[3])[1], 0) # if the tag is not a number it will be 0 - e.g no validator keys
-#             tags            = "${server.tags}"
-#             hostname        = "${split(".", key)[0]}"
-#             cloud           = "digitalocean"
-#             region          = "${server.region}"
-#           }
-#         }
-#       )
-#     }
-#   )
-#   filename = "../../ansible/inventories/tnet-1/inventory.ini"
-# }
+resource "local_file" "ansible_inventory" {
+  content = templatefile("ansible_inventory.tmpl",
+    {
+      ethereum_network_name = "${var.ethereum_network}"
+      groups = merge(
+        { for group in local.google_vm_groups : "${group.group_name}" => true... },
+      )
+      hosts = merge(
+        {
+          for key, server in google_compute_instance.main : "gcp.${key}" => {
+            ip              = "${server.network_interface.0.access_config.0.nat_ip}"
+            # ipv6            = try(server.ipv6_address, "none")
+            ipv6            = "none"
+            group           = try(split("--", tolist(server.tags)[1])[1], "unknown")
+            validator_start = try(split("--", tolist(server.tags)[3])[1], 0)
+            validator_end   = try(split("--", tolist(server.tags)[2])[1], 0) # if the tag is not a number it will be 0 - e.g no validator keys
+            tags            = "${server.tags}"
+            hostname        = "${split(".", key)[0]}"
+            cloud           = "googleclould"
+            region          = "${server.zone}"
+          }
+        }
+      )
+    }
+  )
+  filename = "../../ansible/inventories/tnet-1/inventory.ini"
+}
 
 
 # resource "digitalocean_firewall" "mev_rule" {
